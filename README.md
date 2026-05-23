@@ -83,35 +83,30 @@ This yields a compact set of frequent itemsets without explicit candidate genera
 
 From the mined frequent itemsets, the project generates association rules of the form:
 
-\[
-\{A\} \rightarrow Y
-\]
+$$\{A\} \rightarrow Y$$
 
 where:
 
-- The antecedent \( A \) is always a **single product**  
-- The consequent \( Y \) can contain one or more products  
+- The antecedent $A$ is always a **single product**
+- The consequent $Y$ can contain one or more products
 
 For each frequent itemset with size ≥ 2:
 
-- For every item \( A \) in that itemset:
-  - Define the antecedent as \( \{A\} \)  
-  - Define the consequent as the remaining items in the itemset  
+- For every item $A$ in that itemset:
+  - Define the antecedent as $\{A\}$
+  - Define the consequent as the remaining items in the itemset
 
 ### 4.2 Metrics: Support, Confidence, Lift
 
 For each rule, the following metrics are computed:
 
-- **Support:**  
-  Fraction of transactions that contain both antecedent and consequent.  
-- **Confidence:**  
-  \[
-  \text{conf} = \frac{\text{support}(\text{antecedent} \cup \text{consequent})}{\text{support}(\text{antecedent})}
-  \]
-- **Lift:**  
-  \[
-  \text{lift} = \frac{\text{support}(\text{antecedent} \cup \text{consequent})}{\text{support}(\text{antecedent}) \cdot \text{support}(\text{consequent})}
-  \]
+- **Support:**
+  Fraction of transactions that contain both antecedent and consequent.
+- **Confidence:**
+  $$\text{conf} = \frac{\text{support}(\text{antecedent} \cup \text{consequent})}{\text{support}(\text{antecedent})}$$
+- **Lift:**
+  $$\text{lift} = \frac{\text{support}(\text{antecedent} \cup \text{consequent})}{\text{support}(\text{antecedent}) \cdot \text{support}(\text{consequent})}$$
+  
   Lift measures how much more often the items appear together than would be expected if they were independent.
 
 Rules are filtered based on minimum thresholds for support, confidence, and lift.
